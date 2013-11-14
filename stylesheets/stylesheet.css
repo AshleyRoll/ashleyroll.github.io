@@ -58,7 +58,7 @@ header h1 {
 }
 
 header h1:before {
-  content: "./ ";
+  content: ">> ";
   font-size: 24px;
 }
 
@@ -68,7 +68,7 @@ header h2 {
   color: #666;
 }
 
-#downloads .btn {
+#links .btn {
   display: inline-block;
   text-align: center;
   margin: 0;
@@ -191,8 +191,7 @@ hr {
 .btn {
   display: inline-block;
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
-  padding: 8px 18px;
-  border-radius: 50px;
+  border-radius: 9px;
   border: 2px solid rgba(0, 0, 0, 0.7);
   border-bottom: 2px solid rgba(0, 0, 0, 0.7);
   border-top: 2px solid rgba(0, 0, 0, 1);
@@ -209,17 +208,28 @@ hr {
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
 }
 
-.btn .icon {
+.btn i {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 1px 8px 0 0;
+  width: 48px;
+  height: 48px;
+  margin: 1px 8px;
   float: left;
 }
 
-.btn-github .icon {
-  opacity: 0.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
+.icon-facebook {
+  background: url("../images/facebook-48.png") 0 0 no-repeat;
+}
+.icon-twitter {
+  background: url("../images/twitter-48.png") 0 0 no-repeat;
+}
+.icon-google {
+  background: url("../images/googleplus-48.png") 0 0 no-repeat;
+}
+.icon-linkedin {
+  background: url("../images/linkedin-48.png") 0 0 no-repeat;
+}
+.icon-github {
+  background: url("../images/github-48.png") 0 0 no-repeat;
 }
 
 /* Links
@@ -227,7 +237,7 @@ hr {
 */
 
 a {
-  color: #63c0f5;
+  color: #b5e853;
   text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 
