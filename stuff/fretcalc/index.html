@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Fret Calculator</title>
+		<!-- CSS for Bootstrap -->
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<p></p>
+	
+			<form id="fretcalc" class="form-inline">
+				<fieldset>
+					<legend>Fret Calculator</legend>
+
+					<select id="preDefinedScaleLength">
+						<option>(choose predefined)</option>
+						<optgroup label="Gibson">
+							<option data-frets="22" data-scale="629">Les Paul (mm)</option>
+							<option data-frets="22" data-scale="24.75">Les Paul (in)</option>
+						</optgroup>
+						<optgroup label="Fender">
+							<option data-frets="21" data-scale="648">Telecaster (mm)</option>
+							<option data-frets="21" data-scale="25.5">Telecaster (in)</option>
+						</optgroup>
+						<optgroup label="Other">
+							<option data-frets="19" data-scale="650">Classical Guitar (mm)</option>
+							<option data-frets="19" data-scale="25.6">Classical Guitar (in)</option>
+						</optgroup>
+					</select>
+
+					<label>or</label>
+					<input type="text" class="input-small" id="scaleLength" placeholder="Scale Length" />
+					
+					<label> # frets</label>
+					<input type="text" class="input-mini" id="numFrets" value="24" />
+
+					<button type="submit" class="btn btn-primary">Calculate</button>
+				</fieldset>
+			</form>
+
+			<p class="text-info">There are no specific units, the number you enter and the fret positions calculated are in the same unit.</p>
+
+			<div id="errorMessage" class="alert alert-error hidden"></div>
+
+			<table class="table table-condensed hidden" id="fretPositions" style="max-width: 400px;">
+				<thead>
+					<tr>
+						<th>Fret #</th>
+						<th colspan="2">From Nut</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- script will insert rows -->
+				</tbody>
+			</table>
+
+		</div>
+
+		<!-- script tags for JQuery and Bootstrap -->
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			// hook page ready to setup the calculator
+			$(function () {
+				// function to compute fret position
+				function fretPosition(fretNumber, scaleLength) {
+					// http://www.liutaiomottola.com/formulae/fret.htm
+					var pos = scaleLength - (scaleLength / Math.pow(2, (fretNumber / 12)));
+					// round to 3 digits and return
+					return pos.toFixed(3);
+				}
+
+				// return a fret marker string for a fret number
+				function fretMarker(fretNumber) {
+					var singles = [3, 5, 7, 9];
+
+					// pattern repeats every 12 frets
+					fretNumber = ((fretNumber-1) % 12) + 1;
+
+					if ($.inArray(fretNumber, singles) >= 0) {
+						// we have a single dot
+						return '&bull;';
+					}
+
+					if (fretNumber == 12) {
+						// we have a double dot
+						return '&bull;&nbsp;&bull;';
+					}
+
+					// empty
+					return '&nbsp;';
+				}
+
+				function showError(message) {
+					// hide results
+					$('#fretPositions').addClass('hidden');
+					// show error
+					$('#errorMessage').text(message).removeClass('hidden');
+				}
+
+				function showResults() {
+					// hide error
+					$('#errorMessage').text('').addClass('hidden');
+					// show results
+					$('#fretPositions').removeClass('hidden');
+				}
+
+				// changing selection copies value to scale length
+				$('#preDefinedScaleLength').change(function () {
+					var data = $('#preDefinedScaleLength option:selected').data();
+
+					if (data !== null && data !== undefined) {
+						if (data.scale !== undefined) {
+							$('#scaleLength').val(data.scale);
+						}
+
+						if (data.frets !== undefined) {
+							$('#numFrets').val(data.frets);
+						}
+					}
+				});
+
+				// click on calculate computes the positions.
+				$('#fretcalc').submit(function (event) {
+					var scale = parseFloat($('#scaleLength').val()),
+						frets = parseInt($('#numFrets').val(), 10),
+						tbody,
+						i, html;
+
+					// prevent default form submission
+					event.preventDefault();
+
+					// validate that we have a number
+					if (isNaN(scale) || scale <= 0.0) {
+						showError('Please enter a number in the Scale Length field, or select a pre-defined one.');
+						return;
+					}
+					if (isNaN(frets) || frets < 1) {
+						showError('Please specify a number of frets.');
+						return;
+					}
+
+					// remove any previous output rows
+					tbody = $('#fretPositions > tbody').empty();
+
+					// the nut
+					tbody.append('<tr><td>Nut</td><td></td><td style="border-bottom: 5px solid #000;"></td></tr>');
+
+					// generate the new rows
+					for (i = 1; i <= frets; i = i + 1) {
+						html  = '<tr>';
+						html += '<td>' + (i).toString() + '</td>';
+						html += '<td>' + fretPosition(i, scale).toString() + '</td>';
+						html += '<td style="text-align: center; font-size: 200%; border-bottom: 2px solid #000; border-left: 1px solid #999; border-right: 1px solid #999;">' + fretMarker(i) + '</td>';
+						html += '</tr>';
+
+						tbody.append(html);
+					}
+
+					// the end of the fret board
+					tbody.append('<tr><td></td><td></td><td style="border-bottom: 1px solid #999; border-left: 1px solid #999; border-right: 1px solid #999;"></td></tr>');
+
+
+					// make visible
+					showResults();
+
+				});
+
+			});
+		</script>
+	</body>
+</html>
