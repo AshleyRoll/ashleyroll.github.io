@@ -28,17 +28,31 @@
 
 					<select id="preDefinedScaleLength">
 						<option>(choose predefined)</option>
-						<optgroup label="Gibson">
-							<option data-frets="22" data-scale="629">Les Paul (mm)</option>
-							<option data-frets="22" data-scale="24.75">Les Paul (in)</option>
+						<optgroup label="Electric Guitar">
+							<option data-frets="22" data-scale="629">Gibson Les Paul (mm)</option>
+							<option data-frets="22" data-scale="24.75">Gibson Les Paul (in)</option>
+							<option data-frets="22" data-scale="648">Fender Strat/Tele (mm)</option>
+							<option data-frets="22" data-scale="25.5">Fender Strat/Tele (in)</option>
+							<option data-frets="22" data-scale="635">PRS (mm)</option>
+							<option data-frets="22" data-scale="25">PRS (in)</option>
 						</optgroup>
-						<optgroup label="Fender">
-							<option data-frets="21" data-scale="648">Telecaster (mm)</option>
-							<option data-frets="21" data-scale="25.5">Telecaster (in)</option>
+						<optgroup lable="Electric Bass">
+							<option data-frets="20" data-scale="864">Fender (mm)</option>
+							<option data-frets="20" data-scale="34">Fender (in)</option>
+							<option data-frets="20" data-scale="762">Fender short (mm)</option>
+							<option data-frets="20" data-scale="30">Fender short (in)</option>
+							
 						</optgroup>
-						<optgroup label="Other">
-							<option data-frets="19" data-scale="650">Classical Guitar (mm)</option>
-							<option data-frets="19" data-scale="25.6">Classical Guitar (in)</option>
+						<optgroup label="Acoustic">
+							<option data-frets="20" data-scale="650">Classical Guitar - short (mm)</option>
+							<option data-frets="20" data-scale="25.6">Classical Guitar - short (in)</option>
+							<option data-frets="20" data-scale="660">Classical Guitar - long (mm)</option>
+							<option data-frets="20" data-scale="26">Classical Guitar - long (in)</option>
+							
+							<option data-frets="20" data-scale="645">Martin standard (mm)</option>
+							<option data-frets="20" data-scale="25.4">Martin standard (in)</option>
+							<option data-frets="20" data-scale="632">Martin short (mm)</option>
+							<option data-frets="20" data-scale="24.9">Martin short (in)</option>
 						</optgroup>
 					</select>
 
@@ -52,7 +66,13 @@
 				</fieldset>
 			</form>
 
-			<p class="text-info">There are no specific units, the number you enter and the fret positions calculated are in the same unit.</p>
+			<p class="text-info">
+				There are no units, the number you enter and the fret positions calculated are in the same unit, 
+				so you can enter millimetres, centimetres, inches or anything else that takes your fancy.
+				<br />
+				The calculated fret positions are measured from the fretboard <em>EDGE</em> of the nut,
+				to the <em>CENTRE</em> of the fret.
+			</p>
 
 			<div id="errorMessage" class="alert alert-error hidden"></div>
 
@@ -60,12 +80,17 @@
 				<thead>
 					<tr>
 						<th>Fret #</th>
-						<th colspan="2">From Nut</th>
+						<th colspan="2">From Fretboard edge of nut</th>
 					</tr>
 				</thead>
 				<tbody>
 					<!-- script will insert rows -->
 				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3"><small></small></td>
+					</tr>
+				</tfoot>
 			</table>
 
 		</div>
