@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tgApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Tone Generator - Roll Instruments</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Tone Generator</h1>
+			<p>
+				To use this tone generator, press the <em>play</em> button and drag the frequency
+				slider. You can also hold the scan buttons if that is easier on a mobile device.
+			</p>
+		</div>
+
+		<div ng-controller="MainCtrl">
+			<form name="tg" class="form-horizontal">
+				<div class="form-group">
+					<div class="col-xs-12">
+						<div class="input-group">
+							<span class="input-group-addon">{{limits.minFrequency}}</span>
+							<input type="range" class="form-control" id="frequency" 
+								min="{{limits.minFrequency}}"
+								max="{{limits.maxFrequency}}"
+								step="0.1"
+								ng-model="data.frequency" 
+								ng-change="UpdateFrequency()" />
+							<span class="input-group-addon">{{limits.maxFrequency}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="btn-group col-sm-offset-2 col-sm-3 col-xs-4">
+						<button class="btn btn-default btn-lg" while-held="MoveFrequency(-1.0)" while-held-rate="15" while-held-delay="300">
+							<span class="glyphicon glyphicon-fast-backward"></span>
+						</button>
+						<button class="btn btn-default btn-lg" while-held="MoveFrequency(-0.1)" while-held-rate="15" while-held-delay="300">
+							<span class="glyphicon glyphicon-step-backward"></span>
+						</button>
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<p class="form-control-static input-lg">{{ data.frequency | currency:'':1 }} Hz</p>
+					</div>
+					<div class="btn-group col-sm-3 col-xs-4">
+						<button class="btn btn-default btn-lg" while-held="MoveFrequency(0.1)" while-held-rate="15" while-held-delay="300">
+								<span class="glyphicon glyphicon-step-forward"></span>
+							</button>
+							<button class="btn btn-default btn-lg" while-held="MoveFrequency(1.0)" while-held-rate="15" while-held-delay="300">
+								<span class="glyphicon glyphicon-fast-forward"></span>
+						</button>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<div class="btn-group col-sm-offset-2 col-xs-12">
+						<button class="btn btn-default btn-lg" 
+							ng-class="{'btn-success': !data.playing}"
+							ng-disabled="!!data.playing"
+							ng-click="Play()"><span class="glyphicon glyphicon-play"></span></button>
+						<button class="btn btn-default btn-lg" 
+							ng-class="{'btn-danger': !!data.playing}"
+							ng-disabled="!data.playing"
+							ng-click="Stop()"><span class="glyphicon glyphicon-stop"></span></button>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-2 control-label" for="volume">Volume</label>
+					<div class="col-xs-6">
+						<input type="range" class="form-control" id="volume"
+							min="0" 
+							max="100" 
+							ng-model="data.volume" 
+							ng-change="UpdateVolume()" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+	<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	
+	<!-- Application Code -->
+	<script src="app/app.js"></script>
+</body>
