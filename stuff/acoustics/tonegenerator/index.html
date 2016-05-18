@@ -117,15 +117,62 @@
 				<div class="form-group">
 					<label class="col-xs-12 col-sm-2 control-label" for="volume">Volume</label>
 					<div class="col-xs-6">
-						<input type="range" class="form-control" id="volume"
-							min="0" 
-							max="100" 
-							ng-model="data.volume" 
-							ng-change="UpdateVolume()" />
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-volume-down"></span></span>
+							<input type="range" class="form-control" id="volume"
+								min="0" 
+								max="100" 
+								ng-model="data.volume" 
+								ng-change="UpdateVolume()" />
+							<span class="input-group-addon"><span class="glyphicon glyphicon-volume-up"></span></span>
+						</div>
 					</div>
 				</div>
 			</form>
 		</div>
+	
+			
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">Known Issues</h3>
+			</div>
+			<div class="panel-body">
+				<p>
+					This is a work-in-progress, consider it an early-beta release. I will update and fix this as I get time,
+					but at the moment, there are some known issues.
+				</p>
+				<p>
+					While I can't offer much support at this time, if you are having problems, contact me at <a href="mailto:hello@rollinstruments.com">hello@rollinstruments.com</a>
+					and I'll try my best to help.
+				</p>
+				
+				
+				<div class="list-group">
+					<h4 class="list-group-item-heading">Latest Browsers only - Requires Web Audio API</h4>
+					<p class="list-group-item-text">
+						This is a relatively new feature, more <a href="http://caniuse.com/#feat=audio-api">information about browser support can be found here</a>.
+						Basically, you can't use Microsoft Internet Explorer, but pretty much the latest version of all other browsers should work.
+					</p>
+					<p class="list-group-item-text">
+						At the moment, you won't get a warning in an unsupported browser, it just wont work. Try Chrome.
+					</p>
+					<p></p>
+					
+					<h4 class="list-group-item-heading">Touch Support</h4>
+					<p class="list-group-item-text">
+						There is an issue at the moment with touch screen support on phones/tablets. 
+						Holding a scan button down will "lock" it on. Try tapping a different scan button to turn it off.
+					</p>
+					<p></p>
+				</div>
+				
+				<p class="text-muted">
+					Last Updated: 2016-05-19.
+				</p>
+			</div>			
+		</div>
+
+	
 	</div>
 	
 	
