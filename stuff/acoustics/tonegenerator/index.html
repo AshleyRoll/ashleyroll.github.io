@@ -4,25 +4,21 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<title>Tone Generator - Roll Instruments</title>
-	
+
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
-	<!-- Analytics for AR --> 
-	<script>
-		(function (i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-		ga('create', 'UA-5669383-2', 'ashleyroll.me');
-		ga('send', 'pageview');
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLMG69CKTH"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WLMG69CKTH');
 	</script>
-	
+
 </head>
 <body style="padding-top: 70px">
 	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
@@ -52,9 +48,9 @@
 		<div class="page-header">
 			<h1>Tone Generator</h1>
 			<p>
-				This tool can be used on your mobile phone, tablet, or computer to locate and understand 
+				This tool can be used on your mobile phone, tablet, or computer to locate and understand
 				resonances and locate vibration modes on plates and instruments (modal tuning). You will need to utilise
-				an amplified speaker system for this. 
+				an amplified speaker system for this.
 			</p>
 			<p>
 				To use this tone generator, press the <em>play</em> button and drag the frequency
@@ -68,11 +64,11 @@
 					<div class="col-xs-12">
 						<div class="input-group">
 							<span class="input-group-addon">{{limits.minFrequency}}</span>
-							<input type="range" class="form-control" id="frequency" 
+							<input type="range" class="form-control" id="frequency"
 								min="{{limits.minFrequency}}"
 								max="{{limits.maxFrequency}}"
 								step="0.1"
-								ng-model="data.frequency" 
+								ng-model="data.frequency"
 								ng-change="UpdateFrequency()" />
 							<span class="input-group-addon">{{limits.maxFrequency}}</span>
 						</div>
@@ -99,30 +95,30 @@
 						</button>
 					</div>
 				</div>
-				
-				
+
+
 				<div class="form-group">
 					<div class="btn-group col-sm-offset-2 col-xs-12">
-						<button class="btn btn-default btn-lg" 
+						<button class="btn btn-default btn-lg"
 							ng-class="{'btn-success': !data.playing}"
 							ng-disabled="!!data.playing"
 							ng-click="Play()"><span class="glyphicon glyphicon-play"></span></button>
-						<button class="btn btn-default btn-lg" 
+						<button class="btn btn-default btn-lg"
 							ng-class="{'btn-danger': !!data.playing}"
 							ng-disabled="!data.playing"
 							ng-click="Stop()"><span class="glyphicon glyphicon-stop"></span></button>
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label class="col-xs-12 col-sm-2 control-label" for="volume">Volume</label>
 					<div class="col-xs-6">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-volume-down"></span></span>
 							<input type="range" class="form-control" id="volume"
-								min="0" 
-								max="100" 
-								ng-model="data.volume" 
+								min="0"
+								max="100"
+								ng-model="data.volume"
 								ng-change="UpdateVolume()" />
 							<span class="input-group-addon"><span class="glyphicon glyphicon-volume-up"></span></span>
 						</div>
@@ -130,8 +126,8 @@
 				</div>
 			</form>
 		</div>
-	
-			
+
+
 		<div class="panel panel-warning">
 			<div class="panel-heading">
 				<h3 class="panel-title">Known Issues</h3>
@@ -145,8 +141,8 @@
 					While I can't offer much support at this time, if you are having problems, contact me at <a href="mailto:hello@rollinstruments.com">hello@rollinstruments.com</a>
 					and I'll try my best to help.
 				</p>
-				
-				
+
+
 				<div class="list-group">
 					<h4 class="list-group-item-heading">Latest Browsers only - Requires Web Audio API</h4>
 					<p class="list-group-item-text">
@@ -157,29 +153,29 @@
 						At the moment, you won't get a warning in an unsupported browser, it just wont work. Try Chrome.
 					</p>
 					<p></p>
-					
+
 					<h4 class="list-group-item-heading">Touch Support</h4>
 					<p class="list-group-item-text">
-						There is an issue at the moment with touch screen support on phones/tablets. 
+						There is an issue at the moment with touch screen support on phones/tablets.
 						Holding a scan button down will "lock" it on. Try tapping a different scan button to turn it off.
 					</p>
 					<p></p>
 				</div>
-				
+
 				<p class="text-muted">
 					Last Updated: 2016-05-19.
 				</p>
-			</div>			
+			</div>
 		</div>
 
-	
+
 	</div>
-	
-	
+
+
 	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	
+
 	<!-- Application Code -->
 	<script src="app/app.js"></script>
 </body>

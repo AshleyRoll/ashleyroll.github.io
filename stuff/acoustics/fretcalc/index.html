@@ -5,20 +5,16 @@
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	
-	<!-- Analytics for AR --> 
-	<script>
-		(function (i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-						(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date(); a = s.createElement(o),
-		m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-			ga('create', 'UA-5669383-2', 'ashleyroll.me');
-			ga('send', 'pageview');
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLMG69CKTH"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WLMG69CKTH');
 	</script>
-	
+
 	<style type="text/css">
 		table.fretlayout {
 			width: 400px;
@@ -33,15 +29,15 @@
 		}
 		table.fretlayout td.fret {
 			vertical-align: middle;
-			text-align: center; 
-			font-size: 200%; 
-			border-bottom: 2px solid #000; 
-			border-left: 1px solid #999; 
+			text-align: center;
+			font-size: 200%;
+			border-bottom: 2px solid #000;
+			border-left: 1px solid #999;
 			border-right: 1px solid #999;
 		}
 		table.fretlayout td.end {
-			border-bottom: 1px solid #999; 
-			border-left: 1px solid #999; 
+			border-bottom: 1px solid #999;
+			border-left: 1px solid #999;
 			border-right: 1px solid #999;
 		}
 		table.fretlayout td.noborder {
@@ -95,14 +91,14 @@
 						<option data-frets="20" data-scale="34">Fender (in)</option>
 						<option data-frets="20" data-scale="762">Fender short (mm)</option>
 						<option data-frets="20" data-scale="30">Fender short (in)</option>
-						
+
 					</optgroup>
 					<optgroup label="Acoustic">
 						<option data-frets="20" data-scale="650">Classical Guitar - short (mm)</option>
 						<option data-frets="20" data-scale="25.6">Classical Guitar - short (in)</option>
 						<option data-frets="20" data-scale="660">Classical Guitar - long (mm)</option>
 						<option data-frets="20" data-scale="26">Classical Guitar - long (in)</option>
-						
+
 						<option data-frets="20" data-scale="645">Martin standard (mm)</option>
 						<option data-frets="20" data-scale="25.4">Martin standard (in)</option>
 						<option data-frets="20" data-scale="632">Martin short (mm)</option>
@@ -112,7 +108,7 @@
 
 				<label>or</label>
 				<input type="text" class="input-small" id="scaleLength" placeholder="Scale Length" />
-				
+
 				<label> # frets</label>
 				<input type="text" class="input-mini" id="numFrets" value="24" />
 				<input type="hidden" id="minHeight" value="20" />
@@ -122,7 +118,7 @@
 
 		<p class="text-info">
 			<small>
-				There are no units, the number you enter and the fret positions calculated are in the same unit, 
+				There are no units, the number you enter and the fret positions calculated are in the same unit,
 				so you can enter millimetres, centimetres, inches or anything else that takes your fancy.
 			</small>
 		</p>
@@ -142,8 +138,8 @@
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						The calculated fret positions are measured from the 
-						fretboard <em>EDGE</em> of the nut, to the 
+						The calculated fret positions are measured from the
+						fretboard <em>EDGE</em> of the nut, to the
 						<em>CENTRE</em> of the fret.
 					</td>
 				</tr>
