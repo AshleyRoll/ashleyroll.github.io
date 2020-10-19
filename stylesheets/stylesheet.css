@@ -216,20 +216,17 @@ hr {
   float: left;
 }
 
-.icon-facebook {
-  background: url("../images/facebook-48.png") 0 0 no-repeat;
+.icon-fb {
+  background: url("../images/fb-48.png") 0 0 no-repeat;
 }
-.icon-twitter {
-  background: url("../images/twitter-48.png") 0 0 no-repeat;
+.icon-tw {
+  background: url("../images/tw-48.png") 0 0 no-repeat;
 }
-.icon-google {
-  background: url("../images/googleplus-48.png") 0 0 no-repeat;
+.icon-li {
+  background: url("../images/li-48.png") 0 0 no-repeat;
 }
-.icon-linkedin {
-  background: url("../images/linkedin-48.png") 0 0 no-repeat;
-}
-.icon-github {
-  background: url("../images/github-48.png") 0 0 no-repeat;
+.icon-gh {
+  background: url("../images/gh-48.png") 0 0 no-repeat;
 }
 
 /* Links
