@@ -216,17 +216,17 @@ hr {
   float: left;
 }
 
-.icon-fb {
-  background: url("../images/fb-48.png") 0 0 no-repeat;
+.icon-smfb {
+  background: url("../images/smfb.png") 0 0 no-repeat;
 }
-.icon-tw {
-  background: url("../images/tw-48.png") 0 0 no-repeat;
+.icon-smtw {
+  background: url("../images/smtw.png") 0 0 no-repeat;
 }
-.icon-li {
-  background: url("../images/li-48.png") 0 0 no-repeat;
+.icon-smli {
+  background: url("../images/smli.png") 0 0 no-repeat;
 }
-.icon-gh {
-  background: url("../images/gh-48.png") 0 0 no-repeat;
+.icon-smgh {
+  background: url("../images/smgh.png") 0 0 no-repeat;
 }
 
 /* Links
